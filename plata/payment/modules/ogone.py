@@ -8,6 +8,7 @@ Needs the following settings to work correctly::
         'LIVE': True, # Or False
         'SHA1_IN': 'yourhash',
         'SHA1_OUT': 'yourotherhash',
+        'ACCOUNT' : 'your account reference',
         }
 """
 
@@ -105,7 +106,7 @@ class PaymentProcessor(ProcessorBase):
         # params that will be hashed
         form_params = {
             'PSPID': OGONE['PSPID'],
-            'orderID': 'Order-%d-%d' % (order.id, payment.id),
+            'orderID': OGONE['ACCOUNT']+'-%d-%d' % (order.id, payment.id),
             'amount': u'%s' % int(order.balance_remaining.quantize(Decimal('0.00'))*100),
             'currency': order.currency,
             'language': locale.normalize(to_locale(get_language())).split('.')[0],
