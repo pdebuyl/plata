@@ -7,7 +7,7 @@
 
 <p>{% trans "You will be forwarded to Ogone for payment now." %}</p>
 
-<form method="post" action="https://secure.ogone.com/ncol/{{ form_params.mode }}/orderstandard.asp" id="ogoneform">
+<form method="post" action="https://secure.ogone.com/ncol/{{ form_params.mode }}/orderstandard_utf8.asp" id="ogoneform">
 <input type="hidden" name="PSPID" value="{{ form_params.PSPID }}" />
 <input type="hidden" name="orderID" value="{{ form_params.orderID }}" />
 <input type="hidden" name="amount" value="{{ form_params.amount }}" />
