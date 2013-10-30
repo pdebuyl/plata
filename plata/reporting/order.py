@@ -53,7 +53,7 @@ class OrderReport(object):
             )]+[
             (
                 item.sku,
-                item.name,
+                item.name+'\n'+item.product.description.replace('\r\n','\n'),
                 item.quantity,
             ) for item in self.order.items.all()],
             (2*cm, 13.4*cm, 1*cm), self.pdf.style.tableHead+(
@@ -70,12 +70,12 @@ class OrderReport(object):
             )]+[
             (
                 item.sku,
-                item.name,
+                item.name+'\n'+item.product.description.replace('\r\n','\n'),
                 item.quantity,
                 u'%.2f' % item.unit_price,
                 u'%.2f' % item.discounted_subtotal,
             ) for item in self.order.items.all()],
-            (2*cm, 6*cm, 1*cm, 3*cm, 4.4*cm), self.pdf.style.tableHead+(
+            (1.5*cm, 9.5*cm, 1*cm, 2*cm, 2.4*cm), self.pdf.style.tableHead+(
                 ('ALIGN', (1, 0), (1, -1), 'LEFT'),
                 ))
 
