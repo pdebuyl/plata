@@ -203,7 +203,10 @@ class PaymentProcessor(ProcessorBase):
             payment.amount = Decimal(amount)
             payment.data = request.POST.copy()
             payment.transaction_id = PAYID
-            payment.payment_method = BRAND
+            if OGONE['LIVE']:
+                payment.payment_method = BRAND
+            else:
+                payment.payment_method = BRAND+'!TEST!'
             payment.notes = STATUS_DICT.get(STATUS)
 
             if STATUS in ('5', '9'):
