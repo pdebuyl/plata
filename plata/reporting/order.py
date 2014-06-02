@@ -42,7 +42,7 @@ class OrderReport(object):
 
         if not title:
             title = _('Order')
-        self.pdf.p(u'Concerns: participation to the conference EuroSciPy 2013. Dates: 21-25 August 2013. Brussels, Belgium.')
+        self.pdf.p(u'Concerns: participation to the conference EuroSciPy 2014. Dates: 27-30 August 2014. Cambridge, UK.')
         self.pdf.h1(u'%s %s' % (title, self.order.order_id))
         self.pdf.hr()
 
